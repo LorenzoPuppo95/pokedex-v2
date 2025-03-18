@@ -5,18 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pokèdex API</title>
   <link rel="icon" type="image/x-icon" href="./assets/favicon-zeS1hExF.svg">
-  <script type="module" crossorigin src="./assets/main-Bq2FRjeF.js"></script>
+  <script type="module" crossorigin src="./assets/type-C-mYTb3f.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/poke-services-Dg5AztMM.js">
   <link rel="stylesheet" crossorigin href="./assets/style-Cu6xbovE.css">
 </head>
 <body>
   <header style="text-align:center">
-    <h1>Pokèmon List</h1>
+    <h1 id="type-header">Type Page: </h1>
   </header>
   <main>
     <div id="button-container">
-      <button id="prev" onclick="previous()">Previous</button>
-      <button id="next" onclick="next()">Next</button>   
+      <button id="back-to-index" onclick="goBackToIndex()">Index</button>
       <label for="pokemon-type">Select a Type: </label>
       <select id="pokemon-type">
       </select>
