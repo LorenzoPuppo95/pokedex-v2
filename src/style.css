@@ -16,6 +16,7 @@
   border-radius: 50%;
   border: solid 2px black;
   padding: 1rem 1.4rem;
+  cursor:pointer;
 }
 
 .poke-container a{
@@ -32,7 +33,7 @@ footer, header, #button-container{
 
 #button-container button{
   padding: 10px;
-  width: 20rem;
+  width: 5rem;
   background-color: rgb(227,38,20);
   color: white;
   font-weight: bolder;

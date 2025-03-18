@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokèdex API</title>
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.svg">
+</head>
+<body>
+  <header style="text-align:center">
+    <h1 id="type-header">Detail Page: </h1>
+  </header>
+  <main>
+    <div id="button-container">
+      <button id="back-to-index" onclick="goBackToIndex()">Index</button>
+      <label for="pokemon-type">Select a Type: </label>
+      <select id="pokemon-type">
+      </select>
+      <button id="enter-btn">Confirm</button>  
+    </div>
+    <div id="detail-button-container">
+        <button id="prev" onclick="previousPoke()">Previous Pokemon</button>
+        <button id="next" onclick="nextPoke()">Next Pokemon</button>   
+    </div>
+    <div id="dex-container"></div>
+  </main> 
+  <footer>
+    <p>©copyright pocketto monsuta 2025</p>
+  </footer>
+</body>
+<script type="module" src="./src/detail.js"></script>
+</html>

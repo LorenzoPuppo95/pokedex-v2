@@ -44,11 +44,43 @@ export default class PokeService {
         this.getPokemonData();
     }
 
-    getPokemonByType(type){
-        const url = PokeService.BASE_URL+PokeService.TYPE_URL + type;
+    getPokemonByType(type) {
+        const url = PokeService.BASE_URL + PokeService.TYPE_URL + type;
         return fetch(url)
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(err => err)
+            .then(response => response.json())
+            .then((data) => {
+                const pokemonList = [];
+                if (data && data.pokemon) {
+                    for (const entry of data.pokemon) {
+                        pokemonList.push(entry.pokemon);
+                    }
+                } else {
+                    console.log(`No Pokémon found for type: ${type}`);
+                }
+                return pokemonList;
+            })
+            .then(pokemonList => {
+                const requests = [];
+                for (const pokemon of pokemonList) {
+                    const request = fetch(pokemon.url)
+                        .then(response => response.json())
+                        .then(data => data)
+                        .catch(err => console.log(err));
+                    requests.push(request);
+                }
+                return Promise.all(requests);
+            })
+            .catch(err => {
+                console.log(`Error fetching Pokémon by type: ${err}`);
+                return [];
+            });
+    }
+
+    getPokemonByNumber(number) {
+        const url = PokeService.BASE_URL + PokeService.POKE_URL + number;
+        return fetch(url)
+            .then(response => response.json())
+            .then(data => data)
+            .catch(err => console.log(err));
     }
 }
